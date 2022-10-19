@@ -1,0 +1,23 @@
+Source: send2trash
+Section: python
+Priority: optional
+Maintainer: Debian Python Team <team+python@tracker.debian.org>
+Uploaders: Julian Gilbey <jdg@debian.org>
+Build-Depends: debhelper-compat (= 13),
+               dh-sequence-python3,
+               python3-all,
+               python3-setuptools
+Standards-Version: 4.5.1
+Homepage: https://github.com/hsoft/send2trash
+Vcs-Git: https://salsa.debian.org/python-team/packages/send2trash.git
+Vcs-Browser: https://salsa.debian.org/python-team/packages/send2trash
+Testsuite: autopkgtest-pkg-python
+
+Package: python3-send2trash
+Architecture: all
+Depends: ${misc:Depends}, ${python3:Depends}
+Recommends: python3-gi
+Description: Python module for sending file to trash natively
+ This module sends a file to the trash using either the Glib system
+ for handling a desktop trash file or its own home-grown system if
+ python3-gi is not installed.
