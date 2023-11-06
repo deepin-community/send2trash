@@ -1,3 +1,4 @@
 version=4
-opts=uversionmangle=s/(rc|a|b|c)/~$1/,pgpsigurlmangle=s/$/.asc/ \
-https://pypi.debian.net/Send2Trash/Send2Trash-(.+)\.(?:zip|tgz|tbz|txz|(?:tar\.(?:gz|bz2|xz)))
+opts="uversionmangle=s/(?<=\d)(rc|a|b|c)/~$1/, filenamemangle=s%.*/v?(\d[\d.]*((rc|a|b|c)\d+)?)\.tar\.gz%send2trash-$1.tar.gz%" \
+    https://github.com/arsenetar/send2trash/tags \
+    .*/(\d[\d.]+(?:(?:rc|a|b|c)\d+)?)\.tar\.gz
