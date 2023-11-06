@@ -5,12 +5,12 @@
 # http://www.hardcoded.net/licenses/bsd_license
 
 from gi.repository import GObject, Gio
-from .exceptions import TrashPermissionError
+from send2trash.exceptions import TrashPermissionError
+from send2trash.util import preprocess_paths
 
 
 def send2trash(paths):
-    if not isinstance(paths, list):
-        paths = [paths]
+    paths = preprocess_paths(paths)
     for path in paths:
         try:
             f = Gio.File.new_for_path(path)

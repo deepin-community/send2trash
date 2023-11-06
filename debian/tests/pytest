@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -e
+
+python3_versions="$(py3versions -s)"
+
+cp -a tests "$AUTOPKGTEST_TMP"
+cd "$AUTOPKGTEST_TMP"
+
+# Despite the documentation saying that HOME will be set sensibly,
+# this does not appear to be the case for some versions of autopkgtest,
+# so we set it explicitly.
+# Some of these tests do not work on overlay filesystems, which are
+# typically used by sbuild; see my failed attempts at addressing this at
+# https://github.com/arsenetar/send2trash/issues/67
+# So we just skip all of the tests in such an environment.
+if mount | grep -q "on / type overlay"
+then
+    echo "In an overlay environment; skipping tests"
+else
+    for py in $python3_versions; do
+	echo "Testing with $py:"
+	HOME=$AUTOPKGTEST_TMP $py -m pytest tests
+    done
+fi

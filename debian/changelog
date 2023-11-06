@@ -1,3 +1,26 @@
+send2trash (1.8.2-1) unstable; urgency=medium
+
+  * New upstream version
+  * Update standards-version
+  * Remove unneeded lintian overrides
+
+ -- Julian Gilbey <jdg@debian.org>  Tue, 27 Jun 2023 09:09:32 +0100
+
+send2trash (1.8.1~b0-2) unstable; urgency=medium
+
+  * Migrate debian/watch away from GitHub releases page
+
+ -- Julian Gilbey <jdg@debian.org>  Thu, 22 Sep 2022 08:03:56 +0100
+
+send2trash (1.8.1~b0-1) unstable; urgency=medium
+
+  * New upstream version
+  * Fix lots of small issues identified by lintian
+  * Introduce autopkgtest script and skip tests in chroot overlay
+    environment
+
+ -- Julian Gilbey <jdg@debian.org>  Thu, 27 Jan 2022 07:07:48 +0000
+
 send2trash (1.6.0~b1+git20210122.2eb3242-1) unstable; urgency=medium
 
   * New upstream version
@@ -11,7 +34,7 @@ send2trash (1.6.0~b1+git20210122.2eb3242-1) unstable; urgency=medium
 send2trash (1.5.0-2) unstable; urgency=medium
 
   * Drop python2 support (closes: #938464); thanks to Sandro Tosi
-    <morph@debian.org> for the patch 
+    <morph@debian.org> for the patch
 
  -- Julian Gilbey <jdg@debian.org>  Sun, 17 Nov 2019 17:16:04 +0000
 

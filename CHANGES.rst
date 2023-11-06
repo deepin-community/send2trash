@@ -1,6 +1,45 @@
 Changes
 =======
 
+Version 1.8.2 -- 2023/04/27
+---------------------------
+* win/legacy: tiny logic simplification by @BoboTiG in https://github.com/arsenetar/send2trash/pull/77
+* TravisCI is not used anymore by @sobolevn in https://github.com/arsenetar/send2trash/pull/73
+* fix(ci): Update to latest actions, fix python versions by @arsenetar in https://github.com/arsenetar/send2trash/pull/78
+
+Version 1.8.1b0 -- 2021/09/20
+-----------------------------
+* Add fallback to HOMETRASH when cross device errors happen in plat_other (#26, #41, #63)
+
+Version 1.8.0 -- 2021/08/08
+---------------------------
+
+* Add compatibility with pathlib paths (#49)
+* Fix thread compatibility of modern windows implementation (#59)
+* Fix handling of UNC names in legacy windows implementation  (#57)
+
+Version 1.7.1 -- 2021/06/21
+---------------------------
+
+* Release stable version with changes from last 3 releases
+* Fix handling of UNC names (#57)
+
+Version 1.7.0a1 -- 2021/05/14
+-----------------------------
+
+* Changed conditional for when to try to use pyobjc version (#51)
+
+Version 1.7.0a0 -- 2021/04/20
+-----------------------------
+
+* Add console_script entry point (#50)
+* Increased python CI versions (#52, #54)
+* Fix minor issue in setup.py (#53)
+* Fix issue with windows tests importing modules on non-windows (#55)
+* Unit test cleanups, rewrites, and flake8 cleanups
+* Windows: Fix legacy windows platform for multi-byte unicode and add tests
+* macOS: Add alternative pyobjc version to potentially improve compatibility (#51)
+
 Version 1.6.0b1 -- 2020/06/18
 -----------------------------
 

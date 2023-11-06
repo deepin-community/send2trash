@@ -2,3 +2,19 @@
 
 %:
 	dh $@ --buildsystem=pybuild
+
+# Setting HOME may not be necessary, but it will help when the HOME
+# directory does not exist, for example in some setups when using a
+# chroot for building.
+# Some of these tests do not work on overlay filesystems, which are
+# typically used by sbuild; see my failed attempts at addressing this at
+# https://github.com/arsenetar/send2trash/issues/67
+# So we just skip all of the tests in such an environment.
+override_dh_auto_test:
+	if mount | grep -q "on / type overlay"; then \
+	    echo "In an overlay environment; skipping tests"; \
+	else \
+	    TMPHOME=$$(mktemp -d) && \
+	    HOME=$$TMPHOME dh_auto_test && \
+	    rm -rf $$TMPHOME; \
+	fi
